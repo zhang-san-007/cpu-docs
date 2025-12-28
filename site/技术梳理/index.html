@@ -1,0 +1,1564 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../write-code-and-debug/">
+      
+      
+        <link rel="next" href="../computer/c-language/c/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>技术框架文档 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              技术框架文档
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install-ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ubuntu系统安装
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline-cpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pipeline-cpu项目使用指南
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-RT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    single-cycle处理器启动RT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../single-cycle-cpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    single-cycle-cpu项目使用指南
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../todo-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    todo-list项目使用指南
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vscode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vmware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vmware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../write-code-and-debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    write-code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    技术框架文档
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    技术框架文档
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      观前提醒
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、项目介绍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、测试框架详情
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、测试框架详情">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 测试框架技术介绍
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 测试框架开发经验和建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、其他技术探索
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、其他技术探索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 架构探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 模拟器探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. commit机制的改进
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-spike" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. spike的探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-elfbin" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. elf程序和bin文件的探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 启动Linux的探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-riscv" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. riscv编译器的探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-lightsss" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. LightSSS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 自动化测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、其他资料
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Computer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Computer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C language
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            C language
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer/c-language/c/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2" id="__nav_11_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cpu
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cpu
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer/cpu/modelsim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    modelsim
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2_2" id="__nav_11_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Instruction set
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_11_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Instruction set
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer/cpu/instruction-set/riscv-information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    riscv相关资料
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer/cpu/instruction-set/riscv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Riscv
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer/cpu/instruction-set/y86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    riscv32IM指令介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_3" id="__nav_11_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_3">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer/git/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Riscv isa doc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Riscv isa doc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_1" id="__nav_12_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Rv32
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_1">
+            <span class="md-nav__icon md-icon"></span>
+            Rv32
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../riscv-isa-doc/rv32/rv32i/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rv32i
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../riscv-isa-doc/rv32/rv32m/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rv32m
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_2" id="__nav_12_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Rv64
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_2">
+            <span class="md-nav__icon md-icon"></span>
+            Rv64
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../riscv-isa-doc/rv64/rv64i/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    rv64m
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../riscv-isa-doc/rv64/rv64m/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    rv64m
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      观前提醒
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、项目介绍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、测试框架详情
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、测试框架详情">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 测试框架技术介绍
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 测试框架开发经验和建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、其他技术探索
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、其他技术探索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 架构探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 模拟器探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. commit机制的改进
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-spike" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. spike的探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-elfbin" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. elf程序和bin文件的探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 启动Linux的探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-riscv" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. riscv编译器的探索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-lightsss" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. LightSSS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 自动化测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、其他资料
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">技术框架文档</h1>
+<h2 id="_2">观前提醒</h2>
+<ol>
+<li>
+<p>仓库托管和网页文档page</p>
+</li>
+<li>
+<p>gitee的gitee page功能长久不开放，无法把网页文档放到gitee中</p>
+</li>
+<li>
+<p>github的提供免费的github page，但是需要把仓库公开，有信息泄露和隐私性的风险。</p>
+<p>付费的github page可以将仓库私有，不过付费的时候需要使用国际银行卡。</p>
+</li>
+<li>
+<p>gitlab的仓库托管和免费网页功能，需要付费。</p>
+</li>
+<li>
+<p><a href="https://gitee.com/organizations/jiuqulangan_prj/projects">测试框架项目仓库汇总</a></p>
+</li>
+</ol>
+<h2 id="_3">一、项目介绍</h2>
+<p>该项目是一个对处理器进行测试和验证的框架（后统称为测试框架），以便于用户对处理器进行快速开发和验证。</p>
+<p>目前测试框架能够对静态单发射五级流水线+ICache+分支预测的处理器进行测试和验证。</p>
+<p>测试框架的核心点是使用差分测试(Difftest)技术对处理器进行测试和验证，Difftest的思想是让一个百分百正确的处理器和我们自己开发的处理器进行对比，每次让两者同时执行一条相同的指令，执行完这条指令后对比两个处理器的寄存器状态，如果发现两者的寄存器状态不一致，那么说明我们的处理器实现有误，此时可以快速波捉到出错的是哪一条指令。在技术实现上，测试框架使用处理器模拟器(Spike/QEMU/NEMU)来代替这个百分百完全正确的处理器。</p>
+<p>以下是处理器测试验证流程的实例代码</p>
+<pre><code>while(1){
+    ref_cpu_exec(1); //完全正确的处理器(模拟器)执行一条指令
+    our_cpu_exec(1); //我们的处理器执行一条指令
+    diff_register(); //比对两个处理器的寄存器状态 
+}
+</code></pre>
+<h2 id="_4">二、测试框架详情</h2>
+<h3 id="1">1. 测试框架技术介绍</h3>
+<p>测试框架通过使用veriltor将处理器代码转换成C/C++代码，从而处理器开发和验证更换到了软件层面。</p>
+<p>其次使用模拟器(Spike/QEMU/NEMU)作为一个完全正确的处理器，并将这个模拟器构建成一个动态链接库加载到软件环境中。</p>
+<p>此时软件层面就有了处理器和模拟器，两者就可以进行Difftest对比了，测试框架的主体裸机已经完成了，不过此时测试框架还比较简陋，不能够加载和运行程序。</p>
+<p>然后测试框架使用了一个叫做<code>AbstractMachine</code>的裸机运行时环境，简称AM，其可以将各种各样的程序加载到测试框架中运行。</p>
+<h3 id="2">2. 测试框架开发经验和建议</h3>
+<ol>
+<li>由于第一个版本的测试框架开发较为紧急，并且维护了多个独立的仓库，导致在开发和修改的时候需要进行大量重复的代码修改。非常耗费开发者的精力。后续开发建议按照工程项目开发，开发完成之后在再增加一些用户友好的内容，方便用户使用。</li>
+<li><strong>建议使用网页文档记录一些技术点的经验和一些工具，形成技术积累</strong>。</li>
+</ol>
+<p>文档工具有<code>vuepress</code>, <code>vitepress</code>, <code>material for mkdocs(推荐这个)</code>, <code>docsify</code></p>
+<h2 id="_5">三、其他技术探索</h2>
+<h3 id="1_1">1. 架构探索</h3>
+<p>测试框架可以将Difftest和模拟器和处理器三个内容解耦，分别独立开发。类似于香山的模式了emm。</p>
+<h3 id="2_1">2. 模拟器探索</h3>
+<p>模拟器不再使用NEMU，而是使用Spike或者QEMU或者CEMU。</p>
+<p><a href="https://github.com/akun0311/cemu">CEMU</a>是一个简单的全系统模拟器和SOC模拟器，代码量较少，修改起来也比较简单。</p>
+<p><a href="https://github.com/akun0311/soc-simulator">SOC-Simulator</a>是一个简单易用的软件定义AXI Slave设备框架。</p>
+<h3 id="3-commit">3. commit机制的改进</h3>
+<p>目前测试框架使用指令提交思想来控制Difftest的 过程，不过该commit机制可以做的更加简单和完善，这个是一个可以改进的方向。</p>
+<p>香山的commit机制和龙芯的chiplab机制都比当前测试框架的commit机制简单。</p>
+<h3 id="4-spike">4. spike的探索</h3>
+<ol>
+<li>
+<p>开发团队对spike做出一定的探索，目前可以构建spike的动态链接库。详情见<a href="https://github.com/akun0311/spike-diff">spike仓库</a>，该spike仓库是由一生一芯的陈璐开发完成，开发团队将其独立抽取出来了。该仓库可以独立的构建一个32位的/64位的spike动态链接库。对于简单程序，Difftest只需要比对32个通用寄存器即可，随着处理器变得更加复杂，需要对比CSR寄存器，可以通过<code>state</code>变量获取CSR变量。</p>
+</li>
+<li>
+<p>修改<code>spike</code>源代码的时候可以使用<code>ccache</code>加速编译，可以将编译时间从几分钟降低至30s左右。注意<code>ccache</code>默认不链接<code>riscv64-unknown-elf-</code>，需要对ccache做出一定的修改,可以询问AI。</p>
+</li>
+<li>
+<p>使用spike模拟器运行程序的一个简单Makefile框架——<a href="https://github.com/akun0311/use-spike">use-spike</a></p>
+</li>
+</ol>
+<h3 id="5-elfbin">5. elf程序和bin文件的探索</h3>
+<p>目前测试框架加载的程序是elf格式，也就是说测试框架能够直接运行程序。不过如果只是为了实现Difftest对比功能，其实可以不用加载elf程序，可以使用bin文件。并且如果使用bin文件，就可以去除掉对于AM的依赖，不过并没有尝试成功。</p>
+<h3 id="6-linux">6. 启动Linux的探索</h3>
+<p><code>spike</code>启动linux的资料过少，而qemu启动linux的资料众多，可以先使用<code>qemu</code>启动<code>linux</code>, 把流程搞熟悉之后，再来使用<code>spike</code>启动<code>linux</code>。</p>
+<h3 id="7-riscv">7. riscv编译器的探索</h3>
+<ol>
+<li>riscv64-linux-gnu-</li>
+<li>适用于 riscv64 架构、面向 linux-gnu 平台（使用 glibc 标准库）的工具链。</li>
+<li>可通过包管理工具（如 Ubuntu 的 apt）安装。受限于发行版软件源限制，其编译器版本可能较老。</li>
+<li>riscv64-unknown-linux-gnu-</li>
+<li>适用于 riscv64 架构、面向 linux-gnu 平台（使用 glibc 标准库）的工具链，可以与 <code>riscv64-linux-gnu-</code> 相互替换。</li>
+<li>可从 <a href="https://github.com/riscv-collab/riscv-gnu-toolchain">riscv-collab/riscv-gnu-toolchain</a> 构建。</li>
+<li>直接下载该编译器并编译预计耗时4h，可以通过<code>github/release</code>直接下载编译好的源码，开箱即用。</li>
+<li>riscv64-unknown-elf-</li>
+<li>适用于 riscv64 架构、面向嵌入式/裸机平台（使用 newlib 标准库）的工具链。</li>
+<li>可从 <a href="https://github.com/riscv-collab/riscv-gnu-toolchain">riscv-collab/riscv-gnu-toolchain</a> 构建。</li>
+<li>不推荐通过包管理工具安装此编译链。发行版软件源中的此工具链常常缺少关键的 newlib 标准库。</li>
+<li>直接下载该编译器并编译预计耗时4h，可以通过<code>github/release</code>直接下载编译好的源码，开箱即用。</li>
+</ol>
+<h3 id="8-lightsss">8. LightSSS</h3>
+<p><a href="https://docs.xiangshan.cc/zh-cn/latest/tools/lightsss/">香山LightSSS链接</a>在处理器调试过程中，并不需要完整过程的波形，只需要在仿真出错的时候把前面一段时间内的波形保存即可。<code>Verilator</code>等仿真器提供了持久化保存电路状态的<code>snapshot</code>功能，仿真出错时可以调用这个功能生成相应的状态文件，复现错误的时候可以用这个文件从特定电路状态开始跑仿真。但这个功能的局限性有以下几点：</p>
+<ul>
+<li>只能保存RTL电路的状态，其他仿真的部分比如参考模型、DRAMSim3等的状态不能被保存</li>
+<li>而且当电路规模比较大的时候，保存电路状态的存储开销比较大</li>
+</ul>
+<p>为此我们开发了轻量级的仿真快照工具<code>lightSSS</code>，它可以在仿真进程出错时自动保存出错点附近的波形和debug信息而不需要经过电路状态文件这个中间层。</p>
+<h3 id="9">9. 自动化测试</h3>
+<p>可以使用github的ci脚本进行自动化测试</p>
+<h2 id="_6">四、其他资料</h2>
+<ol>
+<li>
+<p>国外的处理器</p>
+</li>
+<li>
+<p><a href="openhwgroup">https://github.com/openhwgroup</a></p>
+</li>
+<li>
+<p>浙江大学关于<code>RISCV</code>处理器的课程——计算机系统I,II,III，该课程相关仓库在下面两个链接。</p>
+</li>
+<li>
+<p>https://gitee.com/crix1021</p>
+</li>
+<li><a href="https://gitee.com/zju-computer-system-course">ZJU Computer System Course: 浙江大学计算机系统贯通课程（RISC-V架构）实验仓库公开版</a></li>
+<li>
+<p>https://github.com/sycuricon</p>
+</li>
+<li>
+<p>中科大关于数字电路和计组和计算机体系结构的课程实验。</p>
+</li>
+<li>
+<p>https://soc.ustc.edu.cn/CECS/</p>
+</li>
+<li>
+<p>https://soc.ustc.edu.cn/</p>
+</li>
+<li>
+<p>重庆大学RISCV处理器课程，MIPS启动Linux（由陈泱宇构建，重庆大学博士生，龙芯杯强力选手，香山实习）</p>
+</li>
+<li>
+<p>https://github.com/Maxpicca-Li/CDIM/tree/master</p>
+</li>
+<li>https://github.com/cyyself</li>
+<li>
+<p>https://co.ccslab.cn/basic/basic_cache/</p>
+</li>
+<li>
+<p>南京大学课程——不考虑。</p>
+</li>
+<li>
+<p>https://github.com/NJU-ProjectN</p>
+</li>
+<li>
+<p>其他资料</p>
+</li>
+</ol>
+<p><a href="https://space.bilibili.com/1121469705">RISCV国际基金会</a>和<a href="https://space.bilibili.com/2107852263?spm_id_from=333.337.0.0">一生一芯视频号</a>和<a href="https://space.bilibili.com/1398574196?spm_id_from=333.337.0.0">北京开源芯片研究院</a>和<a href="https://github.com/arch-simulator-sig">一生一芯高级体系结构研究小组—博士生段震伟</a>里面有一些关于<code>RISC-V</code>的报告和分享，有一些经验分享，可供参考。</p>
+<ol>
+<li>一生一芯学员，已经在一生一芯的32位框架上已启动Linux。</li>
+</ol>
+<p>https://github.com/CmdBlockZQG</p>
+<ol>
+<li>一生一芯学员和助教</li>
+</ol>
+<p><a href="https://github.com/akun0311">阿坤github</a>的following和followers基本都是一生一芯的助教和学员，他们大多都开发过自己的RISC-V处理器和RISC-V模拟器，可以直接复用项目进行参考。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
