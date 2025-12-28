@@ -1,0 +1,1776 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>pipeline-cpu项目使用指南 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#frontmattertitle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              pipeline-cpu项目使用指南
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  项目介绍
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/%E9%85%8D%E7%BD%AE%E4%B8%80%E8%A7%88/" class="md-tabs__link">
+          
+  
+  
+  项目环境搭建
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8/%E5%8D%95%E5%91%A8%E6%9C%9F%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" class="md-tabs__link">
+          
+  
+  
+  单周期处理器
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" class="md-tabs__link">
+          
+  
+  
+  流水线处理器
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../a.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  处理器进阶设计
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目环境搭建
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    项目环境搭建
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/%E9%85%8D%E7%BD%AE%E4%B8%80%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置一览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/%E5%AE%89%E8%A3%85ubuntu22.04%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装 Ubuntu 22.04 LTS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/%E5%AE%89%E8%A3%85verilator%E5%92%8Cgtkwave/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装 Verilator和gtkwave
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/%E5%AE%89%E8%A3%85%E5%BA%93%E6%96%87%E4%BB%B6%E5%92%8C%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装库文件和编译工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/%E9%A1%B9%E7%9B%AE%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目参考资料
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    单周期处理器
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    单周期处理器
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8/%E5%8D%95%E5%91%A8%E6%9C%9F%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    单周期测试框架介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8/%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AE%E5%A4%84%E7%90%86%E5%99%A8%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用内置处理器运行测试框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8/%E4%BD%BF%E7%94%A8%E4%BD%A0%E7%9A%84%E5%A4%84%E7%90%86%E5%99%A8%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用你的处理器运行测试框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8/%E5%90%AF%E5%8A%A8RT-Thread/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    单周期处理器启动RT-Thread
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流水线处理器
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    流水线处理器
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流水线测试框架介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AE%E5%A4%84%E7%90%86%E5%99%A8%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用内置处理器运行测试框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E4%BD%A0%E7%9A%84%E5%A4%84%E7%90%86%E5%99%A8%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用你的处理器运行测试框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    处理器进阶设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、项目介绍
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、实验环境搭建
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、实验环境搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置一览
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装ubuntu系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verilator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装Verilator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gtkwave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装GTKwave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装库文件和编译工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、初次运行项目
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、初次运行项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 获取项目代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 设置环境变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 运行项目框架默认的处理器和内置程序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-riscv32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 修复riscv32编译错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、运行测试程序
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、运行测试程序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#riscv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行riscv官方指令集测试集合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行cpu-tests目录下的测试集程序:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行benchmarks目录下的测试集程序:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行CSR指令测试程序
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、指定项目运行你的处理器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、将你的处理器接入仿真环境
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、将你的处理器接入仿真环境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-top_module_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 仿真框架对于处理器最顶层模块名称TOP_Module_Name的要求
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 仿真框架对处理器最顶层模块的信号要求
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-clkrst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 仿真框架中clk和rst信号的使用要求
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 仿真框架对于pc复位值的要求
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-dpi-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 接入仿真框架的DPI-C机制
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 接入仿真框架的DPI-C机制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于取指阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于寄存器文件的访问
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于内存的访问
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-bubble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 流水线寄存器复位和冲刷bubble时的处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、再次运行项目
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        八、[失败调试]如何查看和阅读波形
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、[失败调试]如何查看和阅读波形">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-difftest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Difftest检测和波形信息说明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 如何查看波形
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 如何高效查看波形
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="frontmattertitle">{{ $frontmatter.title }}</h1>
+<p>::: tip 注意事项：使用最新的项目代码和文档！
+项目会持续修复一些错误或增加一些对用户友好的内容，因此项目和文档会有不间断的更新，我们需要使用最新的项目和文档</p>
+<p>关于项目：如果你已经克隆了项目, 可以在项目目录下使用<code>git pull</code>来获取最新的项目代码。
+<br>关于文档：文档的最新版本会直接呈现在网页上，可以多留意网页上新增了哪些内容</p>
+<p>有关<code>git pull</code>命令的详细使用，可以通过AI来获得更多的信息。</p>
+<p>:::</p>
+<h2 id="_1">一、项目介绍</h2>
+<p>该项目是一个RISC-V总控式五级流水线处理器仿真、测试框架。你可以将你的流水线处理器接入到该框架中，用于验证自己的处理器实现是否正确，也可以在自己的处理器上运行一些简单的软件程序。</p>
+<p>该项目只支持总控式五级流水线，不支持握手信号的五级流水线。</p>
+<p>支持的指令集:RV32IM</p>
+<p><strong>项目主要目录如下</strong>:
+<div class="highlight"><pre><span></span><code>pipeline-cpu
+├── abstract-machine                 # 裸机运行时环境(目前忽略它)
+├── IP                               # 处理器代码目录
+│    ├── pipeline-cpu                   # 此目录用于接入你的单周期处理器
+├── software-test                    # 测试处理器的软件程序
+│    ├── benchmarks                     # benchmark测试程序
+│    │── cpu-tests                      # 简单cpu测试程序
+├── simulator                        # 处理器模拟仿真框架
+│    ├── include                        
+│    │   nemu                           # 用于difftest的nemu动态链接库目录
+│    │   src                            # 源代码目录
+│    └── Makefile                       
+├── Makefile                         
+└── README.md
+</code></pre></div></p>
+<h2 id="_2">二、实验环境搭建</h2>
+<h3 id="_3">配置一览</h3>
+<ul>
+<li>操作系统： ubuntu 22.04(LTS), 非root账户</li>
+<li>仿真工具： Verilator、GTKwave</li>
+<li>编译工具： RISC-V</li>
+<li>编程语言： Verilog HDL、C语言</li>
+</ul>
+<h3 id="ubuntu">安装ubuntu系统</h3>
+<p><a href="install-ubuntu.md">点击此处查看相关资料</a>
+<br>
+::: tip 记得更换Ubuntu软件源</p>
+<p>由于 Ubuntu 默认软件源在国内访问速度较慢，我们建议大家更换为国内的软件源，例如<a href="https://mirrors.bfsu.edu.cn/help/ubuntu/">北外镜像源</a>。</p>
+<p>在更换软件源后，请使用 sudo apt update 命令更新索引。
+::: </p>
+<h3 id="verilator">安装Verilator</h3>
+<p>Verilator 是一款开源的支持 Verilog 和 SystemVerilog 仿真工具。它能够将给定的电路设计翻译成 C++ 或者 SystemC 的库等中间文件，最后使用 C/C++ 编写激励测试，去调用前面生成的中间文件，由 C/C++ 编译器编译执行，来完成仿真。此外，它也具有静态代码分析的功能。</p>
+<p>如果你想要自己编译安装Verilator, 可以参考<a href="https://verilator.org/guide/latest/install.html">官方文档</a>、CSDN、和知乎。本文主要对文档内容进行整理，并补充一些细节。
+你也可以执行下列命令直接安装verilator:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>verilator
+</code></pre></div></p>
+<h3 id="gtkwave">安装GTKwave</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gtkwave
+</code></pre></div>
+<h3 id="_4">安装库文件和编译工具</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>build-essential
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libreadline-dev
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>llvm-dev
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>g++-riscv64-linux-gnu<span class="w"> </span>binutils-riscv64-linux-gnu
+</code></pre></div>
+<p>::: tip
+目前仍有一部分工具, 暂未提供安装命令，后续会陆续添加支持。
+::: </p>
+<h3 id="_5"></h3>
+<h2 id="_6">三、初次运行项目</h2>
+<h3 id="1">1. 获取项目代码</h3>
+<p>在命令行或终端环境下，执行下列命令获取项目代码</p>
+<p>如果之前已经执行过下面代码克隆过该项目，可以在项目目录下使用<code>git pull</code>来获取最新代码
+<br>或者也可以将已经克隆的项目删除掉之后，再执行下面的命令。
+<br>有关<code>git pull</code>的一些使用方法，可以通过询问<code>AI</code>得知
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:cs-prj-repo/pipeline-cpu.git
+</code></pre></div>
+如果使用上述的git克隆失败，可以使用下面的命令
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/cs-prj-repo/single-cycle-cpu.git
+</code></pre></div>
+如果再次克隆失败并且使用的是虚拟机，可以通过下载压缩包并且使用<code>scp</code>相关命令，将文件拷贝到虚拟机里面。</p>
+<h3 id="2">2. 设置环境变量</h3>
+<p>在你的<code>~/.bashrc</code>文件当中添加如下的环境变量，添加完成后，执行<code>source ~/.bashrc</code>命令
+<br>有关如何添加环境变量，可以通过询问<code>AI</code>得知</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CPU_HOME</span><span class="o">=</span>pipeline-cpu目录的绝对路径<span class="w"> </span><span class="c1">#复制后记得修改,注意记得是绝对路径</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SIM_HOME</span><span class="o">=</span><span class="nv">$CPU_HOME</span>/simulator<span class="w">          </span><span class="c1">#直接复制即可</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AM_HOME</span><span class="o">=</span><span class="nv">$CPU_HOME</span>/abstract-machine<span class="w">    </span><span class="c1">#直接复制即可</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TEST_HOME</span><span class="o">=</span><span class="nv">$CPU_HOME</span>/software-test<span class="w">     </span><span class="c1">#直接复制即可</span>
+</code></pre></div>
+<h3 id="3">3. 运行项目框架默认的处理器和内置程序</h3>
+<p>在命令行或终端环境下执行下面命令，尝试使用项目框架默认的处理器运行内置程序。
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$SIM_HOME</span>
+$<span class="w"> </span>make<span class="w"> </span>run
+</code></pre></div>
+如果项目运行后出现一个绿色的<code>HIT GOOD TRAP</code>，说明程序运行成功，一切正常。</p>
+<p>如果项目运行后出现编译报错，请自行修复，或联系我们并提供报错截图，帮助我们修复错误。</p>
+<p>如果项目运行后出现一个红色的<code>HIG BAD TRAP</code>, 说明处理器执行指令时出错，一般是处理器实现问题。</p>
+<p>::: tip 项目框架的仿真环境对于访存的要求</p>
+<p>目前项目框架支持的内存为128MB, 地址空间为[0x80000000, 0x8fffffff], 注意在访存时不要超出该地址空间范围</p>
+<p>::: 
+::: tip 处理器运行的内置程序
+当在<code>simluator</code>目录下执行<code>make run</code>时，无论项目指定哪个处理器运行，都会运行一个内置的程序
+这段内置程序指令存放在<code>simulator/src/monitor/monitor.c</code>文件下，其名称为<code>static const uint32_t img[]</code></p>
+<p>在运行你的处理器的时候，你可以根据自己的需要来修改此处代码来运行指定的程序指令</p>
+<p>注意内置程序指令一定要包含一条<code>ebreak</code>指令
+:::</p>
+<p>::: tip 仿真环境如何判定程序执行结束
+项目框架通过指定<code>ebreak</code>指令为程序结束的指令来判断一个程序是否运行结束。</p>
+<p>在执行程序时，项目框架会在每个程序的最后注入一条<code>ebraek</code>指令来达到该效果。</p>
+<p>由于内置程序是用户可以自行修改的，所以内置程序的<code>ebreak</code>指令需要由用户自己添加。
+:::</p>
+<p>::: tip 开启/关闭Difftest
+项目需要使用DIfftest技术来验证处理器实现是否正确。</p>
+<p>项目中Difftest默认处于开启状态</p>
+<p>在<code>simulator/inlcude/utils/open_sim_difftest.h</code>文件中
+可以通过注释或者解开注释<code>#define CONFIG_DIFFTEST 1</code>来打开或关闭Difftest功能</p>
+<p>注意，开启Difftest会减缓程序运行时间，在进行benchmarck程序对处理器进行跑分时，建议关闭Difftest
+:::</p>
+<p>::: tip 开启/关闭波形追踪
+在处理器运行时，仿真框架可以追踪到处理器运行程序的波形信息。</p>
+<p>项目默认波形追踪处于关闭状态</p>
+<p>在<code>simulator/inlcude/utils/open_sim_difftest.h</code>文件中
+可以通过注释或者解开注释<code>#define CONFIG_NPC_OPEN_SIM 1</code>来打开或关闭波形追踪功能</p>
+<p>谨记，如果开启波形运行大型，则会生成非常大的波形文件，高达1G-50GB，有可能会损害磁盘</p>
+<p>因此，当运行一些大型程序时，比如benchmark，一定不要开启波形追踪。</p>
+<p>如何使用更小的波形文件格式，如fst，正在开发中。
+:::</p>
+<h3 id="4-riscv32">4. 修复riscv32编译错误</h3>
+<p>第一次运行下面的命令，会出现一个编译错误，我们来修复它。
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$TEST_HOME</span>/cpu-tests
+$<span class="w"> </span>make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc<span class="w"> </span><span class="nv">ALL</span><span class="o">=</span>dummy
+</code></pre></div></p>
+<p>如果遇到了以下错误:
+<br><code>/usr/riscv64-linux-gnu/include/bits/wordsize.h:28:3: error: #error "rv32i-based targets are not supported"</code>
+<br>那么使用<code>sudo</code>权限修改<code>/usr/riscv64-linux-gnu/include/bits/wordsize.h</code>文件
+<div class="highlight"><pre><span></span><code> #<span class="k">if</span> __riscv_xlen <span class="p">==</span> <span class="m">64</span>
+ # <span class="nb">define</span> __WORDSIZE_TIME64_COMPAT32 <span class="m">1</span>
+ #<span class="k">else</span>
+    # error <span class="s2">&quot;rv32i-based targets are not supported&quot;</span> <span class="p">-----&gt;</span>将这一行注释掉
+    # <span class="nb">define</span> __WORDSIZE_TIME64_COMPAT32 <span class="m">0</span>           <span class="p">-----&gt;</span>在下面新增这一行
+ #<span class="k">endif</span>
+</code></pre></div></p>
+<p><br>如果遇到了以下错误：
+<br><code>/usr/riscv64-linux-gnu/include/gnu/stubs.h:8:11: fatal error: gnu/stubs-ilp32.h: No such file or directory</code>
+<br>那么使用<code>sudo</code>权限修改<code>/usr/riscv64-linux-gnu/include/gnu/stubs.h</code>文件
+<br>将文件的<code># include &lt;gnu/stubs-ilp32.h&gt;</code>这段代码注释掉
+<br></p>
+<p><br>
+<br></p>
+<h2 id="_7">四、运行测试程序</h2>
+<p>下面提供了多个可以运行测试程序的命令，选择其中一部分运行即可</p>
+<p>::: tip 运行程序对处理器的要求
+由于我们的测试程序是可运行的程序，一个可运行程序要求处理器必须能够执行<code>auipc</code>, <code>jal</code>,<code>addi</code>指令
+:::
+<br></p>
+<h3 id="riscv">运行riscv官方指令集测试集合</h3>
+<blockquote>
+<p>在项目提供的测试程序中，官方测试集程序是最完备的测试集程序，检测准确度最高</p>
+<p>务必以该测试集程序作为处理器测试是否通过的标准
+1. 克隆riscv官方指令集测试仓库，可以克隆到任意目录
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:cs-prj-repo/riscv-tests-am.git
+</code></pre></div></p>
+</blockquote>
+<ol>
+<li>运行riscv官方测试集程序</li>
+</ol>
+<p>在命令行或终端下执行下面的代码运行测试集程序
+<div class="highlight"><pre><span></span><code><span class="c1">#运行riscv官方指令集测试程序：</span>
+<span class="nb">cd</span><span class="w"> </span>xxx/riscv-tests-am
+make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc<span class="w"> </span><span class="nv">ALL</span><span class="o">=</span>想要测试的指令
+
+<span class="c1">#示例1-测试add指令实现是否正确：</span>
+<span class="nb">cd</span><span class="w"> </span>xxx/riscv-tests-am
+make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc<span class="w"> </span><span class="nv">ALL</span><span class="o">=</span>add
+
+<span class="c1">#示例2-测试sub指令实现是否正确</span>
+<span class="nb">cd</span><span class="w"> </span>xxx/riscv-tests-am
+make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc<span class="w"> </span><span class="nv">ALL</span><span class="o">=</span>sub
+
+<span class="c1">#示例3-测试所有指令实现是否正确</span>
+<span class="nb">cd</span><span class="w"> </span>xxx/riscv-tests-am
+make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc
+</code></pre></div></p>
+<p><br>
+<br></p>
+<h3 id="cpu-tests">运行cpu-tests目录下的测试集程序:</h3>
+<blockquote>
+<p>cpu-tests目录下的测试程序只是一些简单的测试程序, 测试准确率并不高</p>
+<p>cpu-tests目录下的测试程序里有一些含有M类指令, 如果你的处理器只支持RV32I，会有一些测试无法通过，这是正常的，请不要担心。</p>
+</blockquote>
+<p>在命令行或终端下执行下面的代码运行测试集程序</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#运行测试集程序的框架代码：</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$TEST_HOME</span>/cpu-tests
+make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc<span class="w"> </span><span class="nv">ALL</span><span class="o">=</span>想运行的程序
+
+<span class="c1">#示例2-运行string程序：</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$TEST_HOME</span>/cpu-tests
+make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc<span class="w"> </span><span class="nv">ALL</span><span class="o">=</span>dummy
+
+<span class="c1">#示例1-运行dummy程序：</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$TEST_HOME</span>/cpu-tests
+make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc<span class="w"> </span><span class="nv">ALL</span><span class="o">=</span>dummy
+
+<span class="c1">#示例3-运行所有程序：</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$TEST_HOME</span>/cpu-tests
+make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc
+</code></pre></div>
+<p><br></p>
+<h3 id="benchmarks">运行benchmarks目录下的测试集程序:</h3>
+<p>::: tip pipeline暂时先不测试benchmarks
+:::</p>
+<p>::: tip 小总结
+通过执行以上命令，我们可以发现下面的规律:</p>
+<p>如果测试程序集里面有多个测试程序
+<br>执行<code>make run ARCH=riscv32-npc ALL=xxx</code>只会运行一个叫做<code>xxx</code>的测试程序
+<br>执行<code>make run ARCH=riscv32-npc</code> 会运行所有程序</p>
+<p>::: </p>
+<h3 id="csr">运行CSR指令测试程序</h3>
+<p>::: tip CSR测试程序注意事项
+CSR测试程序虽然已经移植，不过仿真框架暂时不支持其测试---全力开发中
+:::
+当你实现了<code>mret</code>,<code>ecall</code>,<code>csrrw</code>, <code>csrrs</code>指令之后, 可以运行<code>yield-os</code>测试程序。
+<br>如果处理器实现正确，测试程序会缓慢出现字母<code>ABABAB</code>的序列。
+<br>如果处理器实现出错，这个程序不是那么的好调试，因为涉及到各种陷入，比较复杂---&gt;待改进</p>
+<p>执行下列命令，运行<code>yield-os</code>测试程序</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$TEST_HOME</span>/csr-tests/yield-os
+make<span class="w"> </span>run<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>riscv32-npc
+</code></pre></div>
+<h2 id="_8">五、指定项目运行你的处理器</h2>
+<p>首先在<code>pipelinc-cpu/IP</code>目录下面新建一个目录，目录的名称不作任何要求。
+<br>下文将使用<code>your_cpu_dir</code>代指你新建的目录, 将你的处理器代码全部放到<code>your_cpu_dir</code>目录下
+最后再通过simulator/Makefile中的<code>CPU_DIR</code>变量为你的处理器目录路径，来指定项目运行你的处理器
+::: warning 注意define.v文件必须和你的处理器同在一个目录下面
+:::</p>
+<p>::: tip 示例
+项目通过<code>simulator/Makefile</code>中的<code>CPU_DIR :=$(CPU_HOME)/IP/pipeline-cpu</code>指定了项目会运行<code>pipeline-cpu目录下的处理器</code></p>
+<p>通过修改<code>CPU_DIR :=$(CPU_HOME)/IP/你的处理器目录名字</code>, 可以指定项目运行<code>你的处理器</code></p>
+<p><br>示例： 若<code>simulator/Makefile</code>中的<code>CPU_DIR :=$(CPU_HOME)/IP/AAA</code>, 则项目会运行<code>AAA</code>目录下的处理器</p>
+<p>:::</p>
+<h2 id="_9">六、将你的处理器接入仿真环境</h2>
+<p>为了支持所有的单周期处理器都可以接入该仿真、测试环境, 仿真环境对运行的处理器有一定的要求</p>
+<h3 id="1-top_module_name">1. 仿真框架对于处理器最顶层模块名称<code>TOP_Module_Name</code>的要求</h3>
+<p>为了支持所有的单周期处理器都可以接入该仿真、测试环境，我们预先设定了一个最顶层的仿真模块名称，即<code>TOP_Module_Name=CPU</code>也就是说处理器最顶层模块名称必须是<code>CPU</code>
+::: warning 仿真框架只对TOP_Module_Name有此要求，对所有的verilog代码文件名，其他模块名称均没有任何要求。
+:::</p>
+<p>::: tip 自定义你的处理器TOP_Module_Name</p>
+<p>项目通过<code>simulator/Makefile</code>中的<code>TOPNAME :=CPU</code>指定了处理器最顶层模块名称<code>TOP_Module_Name</code>必须为<code>CPU</code></p>
+<p>通过修改<code>TOPNAME :=你写的模块名</code>, 可以指定处理器最顶层模块名称为<code>你写的模块名</code></p>
+<p><br>示例： 若<code>simulator/Makefile</code>中的<code>TOPNAME :=AAA</code>, 则处理器最顶层模块名称需要为<code>AAA</code>
+::: 
+<br></p>
+<h3 id="2_1">2. 仿真框架对处理器最顶层模块的信号要求</h3>
+<p>无论处理器顶层模块的模块名是什么，它都必须带有下面三个信号<code>clk</code>, <code>rst</code>, <code>cur_pc</code>, <code>commit</code>, <code>commit_pc</code>, <code>commit_pre_pc</code>, 这几个信号的说明如下</p>
+<p><div class="highlight"><pre><span></span><code>module<span class="w"> </span>CPU<span class="o">(</span>
+<span class="w">    </span>input<span class="w"> </span>wire<span class="w"> </span>clk,
+<span class="w">    </span>input<span class="w"> </span>wire<span class="w"> </span>rst,
+<span class="w">    </span>output<span class="w"> </span>wire<span class="w"> </span><span class="o">[</span><span class="m">31</span>:0<span class="o">]</span><span class="w">          </span>cur_pc,
+<span class="w">    </span>output<span class="w">                      </span>commit,
+<span class="w">    </span>output<span class="w"> </span>wire<span class="w"> </span><span class="o">[</span><span class="m">31</span>:0<span class="o">]</span><span class="w">          </span>commit_pc,
+<span class="w">    </span>output<span class="w"> </span>wire<span class="w"> </span><span class="o">[</span><span class="m">31</span>:0<span class="o">]</span><span class="w">          </span>commit_pre_pc
+<span class="o">)</span><span class="p">;</span>
+
+endmodule
+</code></pre></div>
+由于仿真框架需要捕捉刚刚执行完的一条指令的<code>pc</code>和<code>instr</code>，并且五级流水线当中最多会同时执行五条指令，因此仿真框架会很难判断什么时候一条指令执行完毕了，刚刚执行完的一条指令到底是什么指令，为了确保仿真框架可以捕捉到流水线处理器中真正执行完毕的那条指令，我们需要对框架的仿真信号做出一定的修改。</p>
+<p>仿真框架使用的策略如下，当一条指令从取指阶段到达写回阶段后，仿真框架就判定一条指令执行完毕了。
+在具体实现上，我们通过让<code>pc</code>, <code>commit</code>, <code>instr</code>, <code>pre_pc</code>一起随着流水线往后流动到达写回阶段，然后仿真框架对到达写回阶段的信号进行检测</p>
+<p>::: tip 总结-流水线处理器需要向仿真环境传递的信号
+<code>cur_pc</code>
+<br> 是当前<code>pc</code>寄存器的值</p>
+<p><code>pre_pc</code>信号:
+<br>向仿真信号传递的<code>pre_pc</code>值需要是正确的<code>pre_pc</code>值。
+<br>如果一条分支指令在执行阶段判断出会跳转，那么<code>pre_pc</code>需要是跳转后的地址</p>
+<p><code>commmit_pc</code>信号:
+<br> 是在流水线里面流到写回阶段的那条指令的pc值,不是当前PC寄存器的pc值</p>
+<p><code>commit</code>信号:
+<br>可以IP/pipeline-cpu/fetch.v</p>
+<p><code>commit_instr</code>信号
+<br>是在流水线里面流到写回阶段的那条指令</p>
+<p>:::
+具体信号可以参考下图</p>
+<p><img alt="alt text" src="image-1.png" /></p>
+<p><br></p>
+<h3 id="3-clkrst">3. 仿真框架中<code>clk</code>和<code>rst</code>信号的使用要求</h3>
+<p>仿真框架<code>clk</code>和<code>rst</code>信号的使用要求如下：</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">//我们只捕捉时钟上升沿的信号进行处理，示例如下</span>
+<span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+
+<span class="k">end</span>
+
+<span class="c1">//rst在高电平时进行复位</span>
+<span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">rst</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span><span class="w">        </span><span class="c1">//高电平时进行复位</span>
+<span class="w">        </span><span class="n">regfile</span><span class="p">[</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">32&#39;h0</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">        </span><span class="c1">//other code</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<br></p>
+<h3 id="4-pc">4. 仿真框架对于pc复位值的要求</h3>
+<p><code>pc</code>初始复位值必须为<code>0x80000000</code>
+<div class="highlight"><pre><span></span><code><span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">rst</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">        </span><span class="n">pc</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">32&#39;h80000000</span><span class="p">;</span><span class="w"> </span><span class="c1">//32位操作系统</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<br></p>
+<h3 id="5-dpi-c">5. 接入仿真框架的DPI-C机制</h3>
+<p>我们使用Verilator的DPI-C机制将处理器接入到仿真环境，并访问仿真环境的内存。</p>
+<p><br></p>
+<h4 id="_10">对于取指阶段</h4>
+<p>由于内存是仿真环境提供的，当我们从内存中进行取指时，需要通过DPI-C机制访问内存，使用方法参考下列代码
+同时需要在取指阶段让<code>commit</code>信号为<code>1'b1</code>
+<div class="highlight"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">fetch</span><span class="p">(</span>
+<span class="w">    </span><span class="c1">//其他信号</span>
+<span class="p">);</span>
+
+<span class="kn">import</span> <span class="err">&quot;</span><span class="nn">DPI</span><span class="o">-</span><span class="n">C</span><span class="s">&quot; function int  dpi_mem_read   (input int addr  , input int len);</span>
+<span class="k">assign</span><span class="w"> </span><span class="n">instr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dpi_mem_read</span><span class="p">(</span><span class="n">pc</span><span class="p">,</span><span class="w"> </span><span class="mh">4</span><span class="p">);</span>
+<span class="k">assign</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b1</span><span class="p">;</span>
+<span class="k">endmodule</span>
+</code></pre></div></p>
+<p><br></p>
+<h4 id="_11">对于寄存器文件的访问</h4>
+<p>由于仿真环境在进行指令验证的时候，需要获取到寄存器文件的内存，所以我们要通过DPI-C机制将寄存器文件信号传递给仿真环境，使用方法参考下列代码
+<div class="highlight"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">regfile</span><span class="p">(</span>
+<span class="w">    </span><span class="c1">//其他信号</span>
+<span class="p">);</span>
+
+<span class="kt">reg</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">regfile</span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">];</span>
+<span class="kn">import</span> <span class="err">&quot;</span><span class="nn">DPI</span><span class="o">-</span><span class="n">C</span><span class="s">&quot; function void dpi_read_regfile(input logic [31 : 0] a []);</span>
+<span class="k">initial</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">    </span><span class="n">dpi_read_regfile</span><span class="p">(</span><span class="n">regfile</span><span class="p">);</span>
+<span class="k">end</span>
+<span class="k">endmodule</span>
+</code></pre></div></p>
+<p><br></p>
+<h4 id="_12">对于内存的访问</h4>
+<p>当处理器需要读写内存的时候，也需要通过DPI-C机制从仿真环境获取到内存数据，使用方法参考下列代码</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">memory</span><span class="p">(</span>
+<span class="w">    </span><span class="c1">//其他信号</span>
+<span class="p">);</span>
+
+<span class="kn">import</span> <span class="err">&quot;</span><span class="nn">DPI</span><span class="o">-</span><span class="n">C</span><span class="s">&quot; function void dpi_mem_write(input int addr, input int data, int len);</span>
+<span class="kn">import</span> <span class="err">&quot;</span><span class="nn">DPI</span><span class="o">-</span><span class="n">C</span><span class="s">&quot; function int  dpi_mem_read (input int addr  , input int len);</span>
+
+<span class="c1">//读取内存，每次读取4个字节，然后根据需要，再对读出来的数据进行处理</span>
+<span class="kt">wire</span><span class="w"> </span><span class="err">从内存中读出来的数据</span><span class="p">(</span><span class="mh">32</span><span class="kt">bit</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dpi_mem_read</span><span class="p">(</span><span class="err">要读取的内存地址</span><span class="p">,</span><span class="w"> </span><span class="mh">4</span><span class="p">);</span>
+
+<span class="c1">//写入</span>
+<span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="err">如果要从内存中读取一个字节</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">        </span><span class="n">dpi_mem_write</span><span class="p">(</span><span class="err">写入地址</span><span class="p">,</span><span class="w"> </span><span class="err">要写入的数据</span><span class="p">(</span><span class="mh">32</span><span class="kt">bit</span><span class="p">),</span><span class="w"> </span><span class="mh">1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="err">如果要从内存中读取两个字节</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">        </span><span class="n">dpi_mem_write</span><span class="p">(</span><span class="err">要写入的地址</span><span class="p">,</span><span class="w"> </span><span class="err">要写入的数据</span><span class="p">(</span><span class="mh">32</span><span class="kt">bit</span><span class="p">),</span><span class="w"> </span><span class="mh">2</span><span class="p">);</span><span class="w">        </span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="err">如果要从内存中读取四个字节</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">        </span><span class="n">dpi_mem_write</span><span class="p">(</span><span class="err">要写入的地址</span><span class="p">,</span><span class="w"> </span><span class="err">要写入的数据</span><span class="p">(</span><span class="mh">32</span><span class="kt">bit</span><span class="p">),</span><span class="w"> </span><span class="mh">4</span><span class="p">);</span><span class="w">                </span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><br></p>
+<h3 id="6-bubble">6. 流水线寄存器复位和冲刷<code>bubble</code>时的处理</h3>
+<p>当对流水线寄存器<code>regF</code>, <code>regD</code>, <code>regE</code>, <code>regM</code>, <code>regW</code>进行复位或冲刷时，需要对流水线寄存器有一个初始值，初始值建议如下：</p>
+<p>在对流水线寄存器进行复位和冲刷<code>bubble</code>时的建议为<code>addi x0, x0, 0</code>
+<br>其十六进制为<code>0x00000013</code>,二进制为<code>00000000000000000000000000010011</code>
+<br>其中的各种控制信号和数据信号，如<code>rs1</code>, <code>opcode</code>都是从这条指令解码过来的</p>
+<p>对流水线寄存器进行复位和冲刷<code>bubble</code>时的仿真信号建议如下
+<div class="highlight"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">regD或者regE或者regM或者regW</span><span class="p">(</span>
+
+<span class="p">);</span>
+
+<span class="w">    </span><span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">rst</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">bubble</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">            </span><span class="n">input_commit</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">1</span><span class="mi">&#39;d0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">input_commit_pc</span><span class="w">     </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">32</span><span class="mi">&#39;d0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">input_commit_cur_pc</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">32</span><span class="mi">&#39;d0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">input_commit_instr</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">32</span><span class="mi">&#39;d0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">stall</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">            </span><span class="n">output_commit</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">input_commit</span><span class="p">;</span>
+<span class="w">            </span><span class="n">output_commit_pc</span><span class="w">     </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">input_commit_pc</span><span class="p">;</span>
+<span class="w">            </span><span class="n">output_commit_cur_pc</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">input_commit_cur_pc</span><span class="p">;</span>
+<span class="w">            </span><span class="n">output_commit_instr</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">input_commit_instr</span><span class="p">;</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">endmodule</span>
+</code></pre></div></p>
+<h2 id="_13">七、再次运行项目</h2>
+<p>当将处理器按照文档要求接入到仿真环境以后，我们的准备工作就一切就绪了，下面就要开始在该项目框架下验证我们自己的处理器了。</p>
+<p>执行下面命令，再次运行项目
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$SIM_HOME</span>
+$<span class="w"> </span>make<span class="w"> </span>run
+</code></pre></div>
+当项目运行成功后，使用上文中的riscv官方指令测试集即<code>riscv-tests-am</code>来验证你的处理器实现是否正确</p>
+<h2 id="_14">八、[失败调试]如何查看和阅读波形</h2>
+<p>当处理器运行出现一个红色的<code>HIT BAD TRAP</code>字样时，说明处理器执行的指令出错。
+当指令出错的时候，我们首先可以根据Difftest打印的错误信息来追踪错误指令，当确定了错误的指令后，可以通过查看波形来排查错误。</p>
+<h3 id="1-difftest">1. Difftest检测和波形信息说明</h3>
+<p>在单周期处理中，由于处理器在一个周期只执行一条指令，所以错误指令被Difftest捕捉时，一般为波形文件的最后一条指令。</p>
+<p>不过在流水线处理器中，当错误指令进行到写回阶段并被Difftest捕捉到时，此时仿真框架早已追踪了几条经历过译码、执行、访存指令。
+<br>因此和单周期不同，Difftest捕捉的出错的指令通常不是波形文件的最后一条波形，而是最后一条波形前面4-5个<code>clk</code>的波形。
+<br>由于流水线中有Stall和Bubble的存在，则会使得波形文件更加复杂, 一般真正出错的指令为波形文件最后一条波形前面4-20个<code>clk</code>的波形。</p>
+<p>以上是错误指令在波形文件的大概位置，具体是哪一条波形，我们还需要通过<code>pc</code>和<code>instr</code>进行准确定位。</p>
+<p>对于Difftest捕捉Store指令和Load指令出错的机制，和单周期处理器类似。</p>
+<h3 id="2_2">2. 如何查看波形</h3>
+<p>每当测试程序成功运行完毕并退出后，仿真测试框架就会将该次处理器运行的波形信息保存下来
+此时执行如下命令，查看波形
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$SIM_HOME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>sim
+</code></pre></div></p>
+<h3 id="3_1">3. 如何高效查看波形</h3>
+<p><code>gtkwave</code>在左下角有一个信号搜索框可以进行筛选，可以筛选出自己想要看的信号波形。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
