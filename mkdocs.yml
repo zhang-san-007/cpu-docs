@@ -6,7 +6,7 @@ theme:
     - navigation.tabs      # 开启顶部选项卡
 
 nav:
-  - 项目介绍: 项目介绍/项目介绍.md
+  - 项目介绍: index.md
   - 项目环境搭建: 
       - 配置一览: 项目环境搭建/配置一览.md
       - 安装 Ubuntu 22.04 LTS: 项目环境搭建/安装ubuntu22.04操作系统.md
