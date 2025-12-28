@@ -6,6 +6,7 @@ theme:
     - navigation.tabs      # 开启顶部选项卡
 
 nav:
+  - 首页: index.md
   - 项目介绍: 项目介绍/项目介绍.md
   - 项目环境搭建: 
       - 配置一览: 项目环境搭建/配置一览.md
